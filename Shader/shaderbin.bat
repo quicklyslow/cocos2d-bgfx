@@ -8,6 +8,8 @@ mkdir ".\shader\glsl"
 echo on
 shaderc.exe -f .\Draw\vs_draw.sc -o .\shader\glsl\vs_draw.bin  -i .\ --varyingdef .\Draw\varying.def.sc --platform linux -p 120 --type vertex -O3
 shaderc.exe -f .\Draw\fs_draw.sc -o .\shader\glsl\fs_draw.bin  -i .\ --varyingdef .\Draw\varying.def.sc --platform linux -p 120 --type fragment -O3
+shaderc.exe -f .\Simple\vs_poscolor.sc -o .\shader\glsl\vs_poscolor.bin  -i .\ --varyingdef .\Simple\varying.def.sc --platform linux -p 120 --type vertex -O3
+shaderc.exe -f .\Simple\fs_poscolor.sc -o .\shader\glsl\fs_poscolor.bin  -i .\ --varyingdef .\Simple\varying.def.sc --platform linux -p 120 --type fragment -O3
 shaderc.exe -f .\Sprite\fs_sprite.sc -o .\shader\glsl\fs_sprite.bin  -i .\ --varyingdef .\Sprite\varying.def.sc --platform linux -p 120 --type fragment -O3
 shaderc.exe -f .\Sprite\fs_spritelight.sc -o .\shader\glsl\fs_spritelight.bin  -i .\ --varyingdef .\Sprite\varying.def.sc --platform linux -p 120 --type fragment -O3
 ::shaderc.exe -f .\Sprite\vs_spritemodel.sc -o .\shader\glsl\vs_spritemodel.bin.h --bin2c spritemodedx11  -i .\ --varyingdef .\Draw\varying.def.sc --platform windows -p vs_4_0 -O 3 --type vertex -O3

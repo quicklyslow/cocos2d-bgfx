@@ -8,6 +8,8 @@ mkdir ".\shader\essl"
 echo on
 shaderc.exe -f .\Draw\vs_draw.sc -o .\shader\essl\vs_draw.bin  -i .\ --varyingdef .\Draw\varying.def.sc --platform ios -p 120 --type vertex -O3
 shaderc.exe -f .\Draw\fs_draw.sc -o .\shader\essl\fs_draw.bin  -i .\ --varyingdef .\Draw\varying.def.sc --platform ios -p 120 --type fragment -O3
+shaderc.exe -f .\Simple\vs_poscolor.sc -o .\shader\essl\vs_poscolor.bin  -i .\ --varyingdef .\Simple\varying.def.sc --platform ios -p 120 --type vertex -O3
+shaderc.exe -f .\Simple\fs_poscolor.sc -o .\shader\essl\fs_poscolor.bin  -i .\ --varyingdef .\Simple\varying.def.sc --platform ios -p 120 --type fragment -O3
 shaderc.exe -f .\Sprite\vs_spritemodel.sc -o .\shader\essl\vs_spritemodel.bin  -i .\ --varyingdef .\Sprite\varying.def.sc --platform ios -p 120 --type vertex -O3
 shaderc.exe -f .\Sprite\fs_spritegray.sc -o .\shader\essl\fs_spritegray.bin  -i .\ --varyingdef .\Sprite\varying.def.sc --platform ios -p 120 --type fragment -O3
 shaderc.exe -f .\Sprite\fs_spritealphatest.sc -o .\shader\essl\fs_spritealphatest.bin  -i .\ --varyingdef .\Sprite\varying.def.sc --platform ios -p 120 --type fragment -O3
