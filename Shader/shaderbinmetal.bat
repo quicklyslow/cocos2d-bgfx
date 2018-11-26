@@ -8,6 +8,8 @@ mkdir ".\shader\metal"
 echo on
 shaderc.exe -f .\Draw\vs_draw.sc -o .\shader\metal\vs_draw.bin  -i .\ --varyingdef .\Draw\varying.def.sc --platform ios -p metal --type vertex -O3
 shaderc.exe -f .\Draw\fs_draw.sc -o .\shader\metal\fs_draw.bin  -i .\ --varyingdef .\Draw\varying.def.sc --platform ios -p metal --type fragment -O3
+shaderc.exe -f .\Simple\vs_poscolor.sc -o .\shader\metal\vs_poscolor.bin  -i .\ --varyingdef .\Simple\varying.def.sc --platform ios -p metal --type vertex -O3
+shaderc.exe -f .\Simple\fs_poscolor.sc -o .\shader\metal\fs_poscolor.bin  -i .\ --varyingdef .\Simple\varying.def.sc --platform ios -p metal --type fragment -O3
 shaderc.exe -f .\Sprite\vs_sprite.sc -o .\shader\metal\vs_sprite.bin  -i .\ --varyingdef .\Sprite\varying.def.sc --platform ios -p metal --type vertex -O3
 shaderc.exe -f .\Sprite\vs_spritemodel.sc -o .\shader\metal\vs_spritemodel.bin  -i .\ --varyingdef .\Sprite\varying.def.sc --platform ios -p metal --type vertex -O3
 shaderc.exe -f .\Sprite\fs_sprite.sc -o .\shader\metal\fs_sprite.bin  -i .\ --varyingdef .\Sprite\varying.def.sc --platform ios -p metal --type fragment -O3
