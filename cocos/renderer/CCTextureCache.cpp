@@ -152,7 +152,7 @@ void TextureCache::addImageAsync(String filename, const std::function<void(Textu
             }
             else
             {
-                CCLOG("texture format %s is not supported for %s.", Slice(file).getFileExtension(), file);
+                CCLOG("texture format %s is not supported for %s.", Slice(file).getFileExtension().c_str(), file.c_str());
                 callback(nullptr);
             }
         });
@@ -223,7 +223,7 @@ void TextureCache::addImageAsyncOnTexture(String filename, Texture2D* texInput, 
             }
             else
             {
-                CCLOG("texture format %s is not supported for %s.", Slice(file).getFileExtension(), file);
+                CCLOG("texture format %s is not supported for %s.", Slice(file).getFileExtension().c_str(), file.c_str());
                 callback(nullptr);
             }
         });

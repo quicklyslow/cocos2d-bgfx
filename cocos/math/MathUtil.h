@@ -98,7 +98,7 @@ public:
     template<class T>
     static constexpr const T& clamp(const T& v, const T& lo, const T& hi)
     {
-        return clamp(v, lo, hi, std::less<>());
+        return clamp(v, lo, hi, std::less<T>());
     }
 private:
     //Indicates that if neon is enabled

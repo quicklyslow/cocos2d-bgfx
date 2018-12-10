@@ -56,11 +56,14 @@ bool cocos2d::Image::saveToFile(const std::string& filename, bool isToRGB)
     {
         bitsPerPixel = 24;
     }
+    int width = imageContainer_->m_width;
+    int height = imageContainer_->m_height;
 
-    int bytesPerRow    = (bitsPerPixel/8) * _width;
-    int myDataLength = bytesPerRow * _height;
+    int bytesPerRow    = (bitsPerPixel/8) * width;
+    int myDataLength = bytesPerRow * height;
+    uint8_t* data = static_cast<uint8_t*>(imageContainer_->m_data);
 
-    unsigned char *pixels    = _data;
+    unsigned char *pixels    = data;
 
     // The data has alpha channel, and want to save it with an RGB png file,
     // or want to save as jpg,  remove the alpha channel.
@@ -68,13 +71,13 @@ bool cocos2d::Image::saveToFile(const std::string& filename, bool isToRGB)
     {
         pixels = new (std::nothrow) unsigned char[myDataLength];
 
-        for (int i = 0; i < _height; ++i)
+        for (int i = 0; i < height; ++i)
         {
-            for (int j = 0; j < _width; ++j)
+            for (int j = 0; j < width; ++j)
             {
-                pixels[(i * _width + j) * 3] = _data[(i * _width + j) * 4];
-                pixels[(i * _width + j) * 3 + 1] = _data[(i * _width + j) * 4 + 1];
-                pixels[(i * _width + j) * 3 + 2] = _data[(i * _width + j) * 4 + 2];
+                pixels[(i * width + j) * 3] = data[(i * width + j) * 4];
+                pixels[(i * width + j) * 3 + 1] = data[(i * width + j) * 4 + 1];
+                pixels[(i * width + j) * 3 + 2] = data[(i * width + j) * 4 + 2];
             }
         }
 
@@ -89,7 +92,7 @@ bool cocos2d::Image::saveToFile(const std::string& filename, bool isToRGB)
     }
     CGDataProviderRef provider        = CGDataProviderCreateWithData(nullptr, pixels, myDataLength, nullptr);
     CGColorSpaceRef colorSpaceRef    = CGColorSpaceCreateDeviceRGB();
-    CGImageRef iref                    = CGImageCreate(_width, _height,
+    CGImageRef iref                    = CGImageCreate(width, height,
                                                         bitsPerComponent, bitsPerPixel, bytesPerRow,
                                                         colorSpaceRef, bitmapInfo, provider,
                                                         nullptr, false,
@@ -103,13 +106,13 @@ bool cocos2d::Image::saveToFile(const std::string& filename, bool isToRGB)
 
     // NOTE: Prevent memory leak. Requires ARC enabled.
     @autoreleasepool {
-        NSData *data;
+        NSData *d;
         if (saveToPNG) {
-            data = UIImagePNGRepresentation(image);
+            d = UIImagePNGRepresentation(image);
         } else {
-            data = UIImageJPEGRepresentation(image, 1.0f);
+            d = UIImageJPEGRepresentation(image, 1.0f);
         }
-        [data writeToFile:[NSString stringWithUTF8String:filename.c_str()] atomically:YES];
+        [d writeToFile:[NSString stringWithUTF8String:filename.c_str()] atomically:YES];
     }
 
     [image release];

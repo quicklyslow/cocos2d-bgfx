@@ -52,7 +52,8 @@ git submodule update
 ```
 Go to the BGFX/bgfx folder
 ```
-..\bx\tools\bin\windows\genie.exe --with-dynamic-runtime vs2017
+win:..\bx\tools\bin\windows\genie.exe --with-dynamic-runtime vs2017
+ios:../bx/tools/bin/darwin/genie --with-tools --xcode=ios xcode9
 This will make bgfx use Runtime Library(Multi-threaded /Debug/ DLL), ease a lot of ABI problems across different versions of runtime lib
 ```
 Open simulator.sln

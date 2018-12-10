@@ -134,7 +134,6 @@ THE SOFTWARE.
 #include "2d/CCTransition.h"
 #include "2d/CCTransitionPageTurn.h"
 #include "2d/CCTransitionProgress.h"
-#include "2d/CCEffectNode.h"
 
 // 2d utils
 #include "2d/CCGrabber.h"
