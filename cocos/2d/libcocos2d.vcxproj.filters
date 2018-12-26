@@ -103,9 +103,6 @@
     <Filter Include="ui\ScrollView">
       <UniqueIdentifier>{09bdd687-64ce-479b-8a50-1ae9d842573a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="base\astcdec">
-      <UniqueIdentifier>{d90264eb-fc92-4e77-bd00-2716b6983eaa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="external\lzma">
       <UniqueIdentifier>{a6fe7d3f-b9cf-4e4b-9f22-9cda738a8a10}</UniqueIdentifier>
     </Filter>
@@ -692,48 +689,6 @@
     </ClCompile>
     <ClCompile Include="..\ui\CCScrollView\CCTableViewCell.cpp">
       <Filter>ui\ScrollView</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_decompress_symbolic.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_image_load_store.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\mathlib.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\softfloat.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_block_sizes2.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_color_unquantize.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_partition_tables.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_weight_quant_xfer_tables.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_percentile_tables.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_integer_sequence.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astcdecode.cpp">
-      <Filter>base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_symbolic_physical.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_quantization.cpp">
-      <Filter>base\astcdec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_weight_align.cpp">
-      <Filter>base\astcdec</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\sources\lzma\Alloc.c">
       <Filter>external\lzma</Filter>
@@ -1457,21 +1412,6 @@
     </ClInclude>
     <ClInclude Include="..\ui\CCScrollView\CCTableViewCell.h">
       <Filter>ui\ScrollView</Filter>
-    </ClInclude>
-    <ClInclude Include="..\base\astc_codec_internals.h">
-      <Filter>base\astcdec</Filter>
-    </ClInclude>
-    <ClInclude Include="..\base\mathlib.h">
-      <Filter>base\astcdec</Filter>
-    </ClInclude>
-    <ClInclude Include="..\base\softfloat.h">
-      <Filter>base\astcdec</Filter>
-    </ClInclude>
-    <ClInclude Include="..\base\vectypes.h">
-      <Filter>base\astcdec</Filter>
-    </ClInclude>
-    <ClInclude Include="..\base\astcdecode.h">
-      <Filter>base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\external\sources\lzma\7zTypes.h">
       <Filter>external\lzma</Filter>

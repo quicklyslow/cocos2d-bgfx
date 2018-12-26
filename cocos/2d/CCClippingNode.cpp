@@ -207,7 +207,7 @@ void ClippingNode::drawFullScreenStencil(uint8_t maskLayer, bool value)
     }
 }
 
-void ClippingNode::drawStencil(uint8_t maskLayer, bool value)
+void ClippingNode::drawStencil(uint8_t maskLayer, bool value, uint32_t flags)
 {
     uint32_t func = BGFX_STENCIL_TEST_NEVER |
         BGFX_STENCIL_FUNC_REF(maskLayer) | BGFX_STENCIL_FUNC_RMASK(maskLayer);
@@ -215,7 +215,7 @@ void ClippingNode::drawStencil(uint8_t maskLayer, bool value)
     uint32_t op = fail | BGFX_STENCIL_OP_FAIL_Z_KEEP | BGFX_STENCIL_OP_PASS_Z_KEEP;
     SharedRendererManager.sandwichStencilState(func | op, [&]()
     {
-        _stencil->visit(nullptr, _modelViewTransform, 1);
+        _stencil->visit(nullptr, _modelViewTransform, flags);
         SharedRendererManager.flush();
     });
 }
@@ -258,7 +258,7 @@ void ClippingNode::visit(IRenderer *renderer, const Mat4 &parentTransform, uint3
             once = false;
             CCLOG("Nesting more than %d stencils is not supported. Everything will be drawn without stencil for this node and its childs.", 8);
         }
-        Node::visit(renderer, parentTransform, parentFlags);
+        Node::visit(renderer, parentTransform, flags);
         return;
     }
     _layer++;
@@ -270,12 +270,12 @@ void ClippingNode::visit(IRenderer *renderer, const Mat4 &parentTransform, uint3
     {
         drawFullScreenStencil(maskLayer, true);
     }
-    drawStencil(maskLayer, !isInverted());
+    drawStencil(maskLayer, !isInverted(), flags);
     uint32_t func = BGFX_STENCIL_TEST_EQUAL | BGFX_STENCIL_FUNC_REF(maskLayerLessEqual) | BGFX_STENCIL_FUNC_RMASK(maskLayerLessEqual);
     uint32_t op = BGFX_STENCIL_OP_FAIL_S_KEEP | BGFX_STENCIL_OP_FAIL_Z_KEEP | BGFX_STENCIL_OP_PASS_Z_KEEP;
     SharedRendererManager.sandwichStencilState(func | op, [&]()
     {
-        Node::visit(renderer, parentTransform, parentFlags);
+        Node::visit(renderer, parentTransform, flags);
         SharedRendererManager.flush();
     });
     if (isInverted())
@@ -284,7 +284,7 @@ void ClippingNode::visit(IRenderer *renderer, const Mat4 &parentTransform, uint3
     }
     else
     {
-        drawStencil(maskLayer, false);
+        drawStencil(maskLayer, false, flags);
     }
     _layer--;
 }

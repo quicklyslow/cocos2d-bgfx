@@ -525,13 +525,11 @@ bool Node::isVisible() const
 /// isVisible setter
 void Node::setVisible(bool var)
 {
-    //if(visible != _visible)
-    //{
-    //    _visible = visible;
-    //    if(_visible)
-    //        _transformUpdated = _transformDirty = _inverseDirty = true;
-    //}
     flags_.setFlag(Node::Visible, var);
+    if (var)
+    {
+        flags_.setOn(Node::WorldDirty);
+    }
 }
 
 void Node::setTransformTarget(Node* var)

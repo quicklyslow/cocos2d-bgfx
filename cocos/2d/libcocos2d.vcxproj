@@ -233,20 +233,6 @@ xcopy /Y /Q "$(ProjectDir)..\..\external\win32\libs\*.*" "$(OutDir)"
     <ClCompile Include="..\audio\win32\AudioDecoderOgg.cpp" />
     <ClCompile Include="..\audio\win32\AudioEngine-win32.cpp" />
     <ClCompile Include="..\audio\win32\AudioPlayer.cpp" />
-    <ClCompile Include="..\base\astcdecode.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\base\astc_block_sizes2.cpp" />
-    <ClCompile Include="..\base\astc_color_unquantize.cpp" />
-    <ClCompile Include="..\base\astc_decompress_symbolic.cpp" />
-    <ClCompile Include="..\base\astc_image_load_store.cpp" />
-    <ClCompile Include="..\base\astc_integer_sequence.cpp" />
-    <ClCompile Include="..\base\astc_partition_tables.cpp" />
-    <ClCompile Include="..\base\astc_percentile_tables.cpp" />
-    <ClCompile Include="..\base\astc_quantization.cpp" />
-    <ClCompile Include="..\base\astc_symbolic_physical.cpp" />
-    <ClCompile Include="..\base\astc_weight_align.cpp" />
-    <ClCompile Include="..\base\astc_weight_quant_xfer_tables.cpp" />
     <ClCompile Include="..\base\Async.cpp" />
     <ClCompile Include="..\base\base64.cpp" />
     <ClCompile Include="..\base\Camera.cpp" />
@@ -291,14 +277,12 @@ xcopy /Y /Q "$(ProjectDir)..\..\external\win32\libs\*.*" "$(OutDir)"
     <ClCompile Include="..\base\CCValue.cpp" />
     <ClCompile Include="..\base\etc1.cpp" />
     <ClCompile Include="..\base\EventQueue.cpp" />
-    <ClCompile Include="..\base\mathlib.cpp" />
     <ClCompile Include="..\base\pvr.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\base\ObjectFactory.cpp" />
     <ClCompile Include="..\base\Singleton.cpp" />
     <ClCompile Include="..\base\Slice.cpp" />
-    <ClCompile Include="..\base\softfloat.cpp" />
     <ClCompile Include="..\base\TGAlib.cpp" />
     <ClCompile Include="..\base\Value.cpp" />
     <ClCompile Include="..\base\View.cpp" />
@@ -499,8 +483,6 @@ xcopy /Y /Q "$(ProjectDir)..\..\external\win32\libs\*.*" "$(OutDir)"
     <ClInclude Include="..\audio\win32\AudioEngine-win32.h" />
     <ClInclude Include="..\audio\win32\AudioMacros.h" />
     <ClInclude Include="..\audio\win32\AudioPlayer.h" />
-    <ClInclude Include="..\base\astcdecode.h" />
-    <ClInclude Include="..\base\astc_codec_internals.h" />
     <ClInclude Include="..\base\Async.h" />
     <ClInclude Include="..\base\base64.h" />
     <ClInclude Include="..\base\Camera.h" />
@@ -554,19 +536,16 @@ xcopy /Y /Q "$(ProjectDir)..\..\external\win32\libs\*.*" "$(OutDir)"
     <ClInclude Include="..\base\etc1.h" />
     <ClInclude Include="..\base\EventQueue.h" />
     <ClInclude Include="..\base\firePngData.h" />
-    <ClInclude Include="..\base\mathlib.h" />
     <ClInclude Include="..\base\ObjectFactory.h" />
     <ClInclude Include="..\base\Own.h" />
     <ClInclude Include="..\base\pvr.h" />
     <ClInclude Include="..\base\Singleton.h" />
     <ClInclude Include="..\base\Slice.h" />
     <ClInclude Include="..\base\SmartPtr.h" />
-    <ClInclude Include="..\base\softfloat.h" />
     <ClInclude Include="..\base\TGAlib.h" />
     <ClInclude Include="..\base\uthash.h" />
     <ClInclude Include="..\base\utlist.h" />
     <ClInclude Include="..\base\Value.h" />
-    <ClInclude Include="..\base\vectypes.h" />
     <ClInclude Include="..\base\View.h" />
     <ClInclude Include="..\base\WeakPtr.h" />
     <ClInclude Include="..\base\ZipUtils.h" />

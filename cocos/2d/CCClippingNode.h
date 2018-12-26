@@ -137,7 +137,7 @@ CC_CONSTRUCTOR_ACCESS:
     virtual bool init(Node *stencil);
 
     void drawFullScreenStencil(uint8_t maskLayer, bool value);
-    void drawStencil(uint8_t maskLayer, bool value);
+    void drawStencil(uint8_t maskLayer, bool value, uint32_t flags);
     void setupAlphaTest();
 
 protected:
