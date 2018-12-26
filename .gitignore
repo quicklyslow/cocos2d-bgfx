@@ -1,0 +1,14 @@
+
+*.db
+*.opendb
+*.ipch
+*.db-shm
+*.db-wal
+*.obj
+*.log
+*.tlog
+*.idb
+*.pdb
+tools/simulator/frameworks/runtime-src/proj.win32/.vs/simulator/v15/.suo
+*.user
+*.res

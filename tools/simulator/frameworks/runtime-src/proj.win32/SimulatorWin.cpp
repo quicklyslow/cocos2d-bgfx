@@ -856,7 +856,7 @@ std::string SimulatorWin::getApplicationExePath()
     std::u16string u16ApplicationName;
     char *applicationExePath = convertTCharToUtf8(szFileName);
     std::string path(applicationExePath);
-    CC_SAFE_FREE(applicationExePath);
+    delete[] applicationExePath;
 
     return path;
 }
@@ -889,6 +889,7 @@ LRESULT CALLBACK SimulatorWin::windowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
     case WM_COMMAND:
     {
         if (HIWORD(wParam) == 0)
+
         {
             // menu
             WORD menuId = LOWORD(wParam);
@@ -896,14 +897,17 @@ LRESULT CALLBACK SimulatorWin::windowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
             auto menuItem = menuService->getItemByCommandId(menuId);
             if (menuItem)
             {
-                AppEvent event("APP.EVENT", APP_EVENT_MENU);
+                SharedApplication.invokeInLogic([menuItem]()
+                {
+                    AppEvent event("APP.EVENT", APP_EVENT_MENU);
 
-                std::stringstream buf;
-                buf << "{\"data\":\"" << menuItem->getMenuId().c_str() << "\"";
-                buf << ",\"name\":" << "\"menuClicked\"" << "}";
-                event.setDataString(buf.str());
-                event.setUserData(menuItem);
-                SharedDirector.getEventDispatcher()->dispatchEvent(&event);
+                    std::stringstream buf;
+                    buf << "{\"data\":\"" << menuItem->getMenuId().c_str() << "\"";
+                    buf << ",\"name\":" << "\"menuClicked\"" << "}";
+                    event.setDataString(buf.str());
+                    event.setUserData(menuItem);
+                    SharedDirector.getEventDispatcher()->dispatchEvent(&event);
+                });
             }
 
             if (menuId == ID_HELP_ABOUT)

@@ -61,7 +61,7 @@ static void releaseFileData(void* _ptr, void* _userData)
     if (_ptr)
     {
         uint8_t* data = reinterpret_cast<uint8_t*>(_ptr);
-        delete[] data;
+        free(data);
     }
 }
 
