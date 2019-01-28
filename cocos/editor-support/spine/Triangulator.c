@@ -152,9 +152,8 @@ spShortArray* spTriangulator_triangulate(spTriangulator* self, spFloatArray* ver
 	spShortArray_ensureCapacity(triangles, MAX(0, vertexCount - 2) << 2);
 
 	while (vertexCount > 3) {
-		int previous = vertexCount - 1, next = 1;
+		int previous = vertexCount - 1, i = 0, next = 1;
 		int previousIndex, nextIndex;
-        i = 0;
 		while (1) {
 			if (!isConcave[i]) {
 				int p1 = indices[previous] << 1, p2 = indices[i] << 1, p3 = indices[next] << 1;
@@ -169,13 +168,13 @@ spShortArray* spTriangulator_triangulate(spTriangulator* self, spFloatArray* ver
 					vx = vertices[v]; vy = vertices[v + 1];
 					if (_positiveArea(p3x, p3y, p1x, p1y, vx, vy)) {
 						if (_positiveArea(p1x, p1y, p2x, p2y, vx, vy)) {
-							if (_positiveArea(p2x, p2y, p3x, p3y, vx, vy)) goto outer;
+							if (_positiveArea(p2x, p2y, p3x, p3y, vx, vy)) goto break_outer;
 						}
 					}
 				}
 				break;
 			}
-			outer:
+			break_outer:
 
 			if (next == 0) {
 				do {

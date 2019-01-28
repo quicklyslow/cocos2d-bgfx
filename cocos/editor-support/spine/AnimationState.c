@@ -183,6 +183,17 @@ void _spEventQueue_drain (_spEventQueue* self) {
 	self->drainDisabled = 0;
 }
 
+/* These two functions are needed in the UE4 runtime, see #1037 */
+void _spAnimationState_enableQueue(spAnimationState* self) {
+	_spAnimationState* internal = SUB_CAST(_spAnimationState, self);
+	internal->queue->drainDisabled = 0;
+}
+
+void _spAnimationState_disableQueue(spAnimationState* self) {
+	_spAnimationState* internal = SUB_CAST(_spAnimationState, self);
+	internal->queue->drainDisabled = 1;
+}
+
 void _spAnimationState_disposeTrackEntry (spTrackEntry* entry) {
 	if (_trackEntryDisposeCallback)
 		_trackEntryDisposeCallback(entry);
@@ -325,6 +336,9 @@ int /*boolean*/ _spAnimationState_updateMixingFrom (spAnimationState* self, spTr
 
 	finished = _spAnimationState_updateMixingFrom(self, from, delta);
 
+	from->animationLast = from->nextAnimationLast;
+	from->trackLast = from->nextTrackLast;
+
 	/* Require mixTime > 0 to ensure the mixing from entry was applied at least once. */
 	if (to->mixTime > 0 && (to->mixTime >= to->mixDuration || to->timeScale == 0)) {
 		/* Require totalAlpha == 0 to ensure mixing is complete, unless mixDuration == 0 (the transition is a single frame). */
@@ -336,8 +350,6 @@ int /*boolean*/ _spAnimationState_updateMixingFrom (spAnimationState* self, spTr
 		return finished;
 	}
 
-	from->animationLast = from->nextAnimationLast;
-	from->trackLast = from->nextTrackLast;
 	from->trackTime += delta * from->timeScale;
 	to->mixTime += delta * to->timeScale;
 	return 0;
@@ -430,9 +442,10 @@ float _spAnimationState_applyMixingFrom (spAnimationState* self, spTrackEntry* t
 	spTrackEntry* from = to->mixingFrom;
 	if (from->mixingFrom) _spAnimationState_applyMixingFrom(self, from, skeleton, currentPose);
 
-	if (to->mixDuration == 0) /* Single frame mix to undo mixingFrom changes. */
+	if (to->mixDuration == 0) { /* Single frame mix to undo mixingFrom changes. */
 		mix = 1;
-	else {
+		currentPose = SP_MIX_POSE_SETUP;
+	} else {
 		mix = to->mixTime / to->mixDuration;
 		if (mix > 1) mix = 1;
 	}
@@ -575,7 +588,7 @@ void _spAnimationState_queueEvents (spAnimationState* self, spTrackEntry* entry,
 	spEvent** events;
 	spEvent* event;
 	_spAnimationState* internal = SUB_CAST(_spAnimationState, self);
-	int i, n;
+	int i, n, complete;
 	float animationStart = entry->animationStart, animationEnd = entry->animationEnd;
 	float duration = animationEnd - animationStart;
 	float trackLastWrapped = FMOD(entry->trackLast, duration);
@@ -590,10 +603,11 @@ void _spAnimationState_queueEvents (spAnimationState* self, spTrackEntry* entry,
 	}
 
 	/* Queue complete if completed a loop iteration or the animation. */
-	if (entry->loop ? (trackLastWrapped > FMOD(entry->trackTime, duration))
-				   : (animationTime >= animationEnd && entry->animationLast < animationEnd)) {
-		_spEventQueue_complete(internal->queue, entry);
-	}
+	if (entry->loop)
+		complete = duration == 0 || (trackLastWrapped > FMOD(entry->trackTime, duration));
+	else
+		complete = (animationTime >= animationEnd && entry->animationLast < animationEnd);
+	if (complete) _spEventQueue_complete(internal->queue, entry);
 
 	/* Queue events after complete. */
 	for (; i < n; i++) {
@@ -719,9 +733,14 @@ spTrackEntry* spAnimationState_addAnimation (spAnimationState* self, int trackIn
 		last->next = entry;
 		if (delay <= 0) {
 			float duration = last->animationEnd - last->animationStart;
-			if (duration != 0)
-				delay += duration * (1 + (int)(last->trackTime / duration)) - spAnimationStateData_getMix(self->data, last->animation, animation);
-			else
+			if (duration != 0) {
+				if (last->loop) {
+					delay += duration * (1 + (int) (last->trackTime / duration));
+				} else {
+					delay += duration;
+				}
+				delay -= spAnimationStateData_getMix(self->data, last->animation, animation);
+			} else
 				delay = 0;
 		}
 	}
@@ -915,7 +934,9 @@ spTrackEntry* _spTrackEntry_setTimelineData(spTrackEntry* self, spTrackEntry* to
 	spTrackEntryArray_clear(self->timelineDipMix);
 	timelineDipMix = spTrackEntryArray_setSize(self->timelineDipMix, timelinesCount)->items;
 
-	for (i = 0; i < timelinesCount; i++) {
+	i = 0;
+	continue_outer:
+	for (; i < timelinesCount; i++) {
 		int id = spTimeline_getPropertyId(timelines[i]);
 		if (!_spAnimationState_addPropertyID(state, id))
 			timelineData[i] = SUBSEQUENT;
@@ -929,7 +950,7 @@ spTrackEntry* _spTrackEntry_setTimelineData(spTrackEntry* self, spTrackEntry* to
 						timelineData[i] = DIP_MIX;
 						timelineDipMix[i] = entry;
 						i++;
-						goto outer;
+						goto continue_outer;
 					}
 				}
 				break;
@@ -937,6 +958,5 @@ spTrackEntry* _spTrackEntry_setTimelineData(spTrackEntry* self, spTrackEntry* to
 			timelineData[i] = DIP;
 		}
 	}
-	outer:
 	return lastEntry;
 }

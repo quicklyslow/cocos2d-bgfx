@@ -76,26 +76,26 @@ void _Cocos2dAttachmentLoader_configureAttachment (spAttachmentLoader* loader, s
 	}
 }
 
+void _Cocos2dAttachmentLoader_disposeAttachment (spAttachmentLoader* loader, spAttachment* attachment) {
+	switch (attachment->type) {
+	case SP_ATTACHMENT_REGION: {
+		spRegionAttachment* regionAttachment = SUB_CAST(spRegionAttachment, attachment);
+		delete (AttachmentVertices*)regionAttachment->rendererObject;
+		break;
+	}
+	case SP_ATTACHMENT_MESH: {
+		spMeshAttachment* meshAttachment = SUB_CAST(spMeshAttachment, attachment);
+		delete (AttachmentVertices*)meshAttachment->rendererObject;
+		break;
+	}
+	default: ;
+	}
+}
+
 void _Cocos2dAttachmentLoader_dispose (spAttachmentLoader* loader) {
 	Cocos2dAttachmentLoader* self = SUB_CAST(Cocos2dAttachmentLoader, loader);
 	spAttachmentLoader_dispose(SUPER_CAST(spAttachmentLoader, self->atlasAttachmentLoader));
 	_spAttachmentLoader_deinit(loader);
-}
-
-void _Cocos2dAttachmentLoader_disposeAttachment(spAttachmentLoader* loader, spAttachment* attachment) {
-    switch (attachment->type) {
-    case SP_ATTACHMENT_REGION: {
-        spRegionAttachment* regionAttachment = SUB_CAST(spRegionAttachment, attachment);
-        delete (AttachmentVertices*)regionAttachment->rendererObject;
-        break;
-    }
-    case SP_ATTACHMENT_MESH: {
-        spMeshAttachment* meshAttachment = SUB_CAST(spMeshAttachment, attachment);
-        delete (AttachmentVertices*)meshAttachment->rendererObject;
-        break;
-    }
-    default:;
-    }
 }
 
 Cocos2dAttachmentLoader* Cocos2dAttachmentLoader_create (spAtlas* atlas) {

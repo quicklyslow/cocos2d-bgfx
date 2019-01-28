@@ -42,69 +42,68 @@ using std::max;
 
 namespace spine {
 
-TwoColorTrianglesCommand::TwoColorTrianglesCommand() 
-    :_materialID(0), _textureID(0), _blendType(BlendFunc::DISABLE), _alphaTextureID(0)
-{
+TwoColorTrianglesCommand::TwoColorTrianglesCommand() :_materialID(0), _textureID(0), _blendType(BlendFunc::DISABLE), _alphaTextureID(0) {
+	//func = [this]() { draw(); };
 }
-//
-//void TwoColorTrianglesCommand::init(float globalOrder, GLuint textureID, GLProgramState* glProgramState, BlendFunc blendType, const TwoColorTriangles& triangles, const Mat4& mv, uint32_t flags) {
-//	CCASSERT(glProgramState, "Invalid GLProgramState");
-//	CCASSERT(glProgramState->getVertexAttribsFlags() == 0, "No custom attributes are supported in QuadCommand");
-//
-//	RenderCommand::init(globalOrder, mv, flags);
-//
-//	_triangles = triangles;
-//	if(_triangles.indexCount % 3 != 0) {
-//	int count = _triangles.indexCount;
-//		_triangles.indexCount = count / 3 * 3;
-//		CCLOGERROR("Resize indexCount from %zd to %zd, size must be multiple times of 3", count, _triangles.indexCount);
-//	}
-//	_mv = mv;
-//
-//	if( _textureID != textureID || _blendType.src != blendType.src || _blendType.dst != blendType.dst ||
-//		_glProgramState != glProgramState ||
-//		_glProgram != glProgramState->getGLProgram()) {
-//		_textureID = textureID;
-//		_blendType = blendType;
-//		_glProgramState = glProgramState;
-//		_glProgram = glProgramState->getGLProgram();
-//
-//		generateMaterialID();
-//	}
-//}
-//
-//TwoColorTrianglesCommand::~TwoColorTrianglesCommand() {
-//}
-//
-//void TwoColorTrianglesCommand::generateMaterialID() {
-//	// do not batch if using custom uniforms (since we cannot batch) it
-//	/*if(_glProgramState->getUniformCount() > 0) {
-//		_materialID = CRenderer::MATERIAL_ID_DO_NOT_BATCH;
-//		setSkipBatching(true);
-//	}
-//	else {
-//		int glProgram = (int)_glProgram->getProgram();		
-//		_materialID = glProgram + (int)_textureID + (int)_blendType.src + (int)_blendType.dst;
-//	}*/
-//}
-//
-//void TwoColorTrianglesCommand::useMaterial() const {
-//	//Set texture
-//	//GL::bindTexture2D(_textureID);
-//	//
-//	//if (_alphaTextureID > 0) {
-//	//	// ANDROID ETC1 ALPHA supports.
-//	//	GL::bindTexture2DN(1, _alphaTextureID);
-//	//}
-//	////set blend mode
-//	//GL::blendFunc(_blendType.src, _blendType.dst);
-//	//
-//	//_glProgramState->apply(_mv);
-//}
-//	
-//void TwoColorTrianglesCommand::draw() {
-//	SkeletonTwoColorBatch::getInstance()->batch(this);
-//}
+
+/*void TwoColorTrianglesCommand::init(float globalOrder, GLuint textureID, GLProgramState* glProgramState, BlendFunc blendType, const TwoColorTriangles& triangles, const Mat4& mv, uint32_t flags) {
+	CCASSERT(glProgramState, "Invalid GLProgramState");
+	CCASSERT(glProgramState->getVertexAttribsFlags() == 0, "No custom attributes are supported in QuadCommand");
+
+	RenderCommand::init(globalOrder, mv, flags);
+
+	_triangles = triangles;
+	if(_triangles.indexCount % 3 != 0) {
+	int count = _triangles.indexCount;
+		_triangles.indexCount = count / 3 * 3;
+		CCLOGERROR("Resize indexCount from %zd to %zd, size must be multiple times of 3", count, _triangles.indexCount);
+	}
+	_mv = mv;
+
+	if( _textureID != textureID || _blendType.src != blendType.src || _blendType.dst != blendType.dst ||
+		_glProgramState != glProgramState ||
+		_glProgram != glProgramState->getGLProgram()) {
+		_textureID = textureID;
+		_blendType = blendType;
+		_glProgramState = glProgramState;
+		_glProgram = glProgramState->getGLProgram();
+
+		generateMaterialID();
+	}
+}
+
+TwoColorTrianglesCommand::~TwoColorTrianglesCommand() {
+}
+
+void TwoColorTrianglesCommand::generateMaterialID() {
+	// do not batch if using custom uniforms (since we cannot batch) it
+	if(_glProgramState->getUniformCount() > 0) {
+		_materialID = Renderer::MATERIAL_ID_DO_NOT_BATCH;
+		setSkipBatching(true);
+	}
+	else {
+		int glProgram = (int)_glProgram->getProgram();		
+		_materialID = glProgram + (int)_textureID + (int)_blendType.src + (int)_blendType.dst;
+	}
+}
+
+void TwoColorTrianglesCommand::useMaterial() const {
+	//Set texture
+	GL::bindTexture2D(_textureID);
+	
+	if (_alphaTextureID > 0) {
+		// ANDROID ETC1 ALPHA supports.
+		GL::bindTexture2DN(1, _alphaTextureID);
+	}
+	//set blend mode
+	GL::blendFunc(_blendType.src, _blendType.dst);
+	
+	_glProgramState->apply(_mv);
+}
+	
+void TwoColorTrianglesCommand::draw() {
+	SkeletonTwoColorBatch::getInstance()->batch(this);
+}*/
 
 const char* TWO_COLOR_TINT_VERTEX_SHADER = STRINGIFY(
 in vec4 a_position;

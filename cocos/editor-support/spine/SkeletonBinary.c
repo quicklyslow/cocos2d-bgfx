@@ -307,8 +307,9 @@ static spAnimation* _spSkeletonBinary_readAnimation (spSkeletonBinary* self, con
 					break;
 				}
 				default: {
-					for (iii = 0; iii < kv_size(timelines); ++iii)
-						spTimeline_dispose(kv_A(timelines, iii));
+					int i;
+					for (i = 0; i < kv_size(timelines); ++i)
+						spTimeline_dispose(kv_A(timelines, i));
 					kv_destroy(timelines);
 					_spSkeletonBinary_setError(self, "Invalid timeline type for a slot: ", skeletonData->slots[slotIndex]->name);
 					return 0;
@@ -369,8 +370,9 @@ static spAnimation* _spSkeletonBinary_readAnimation (spSkeletonBinary* self, con
 					break;
 				}
 				default: {
-					for (iii = 0; iii < kv_size(timelines); ++iii)
-						spTimeline_dispose(kv_A(timelines, iii));
+					int i;
+					for (i = 0; i < kv_size(timelines); ++i)
+						spTimeline_dispose(kv_A(timelines, i));
 					kv_destroy(timelines);
 					_spSkeletonBinary_setError(self, "Invalid timeline type for a bone: ", skeletonData->bones[boneIndex]->name);
 					return 0;
@@ -480,9 +482,9 @@ static spAnimation* _spSkeletonBinary_readAnimation (spSkeletonBinary* self, con
 				spVertexAttachment* attachment = SUB_CAST(spVertexAttachment,
 						spSkin_getAttachment(skin, slotIndex, attachmentName));
 				if (!attachment) {
-					int iiii;
-					for (iiii = 0; iiii < kv_size(timelines); ++iiii)
-						spTimeline_dispose(kv_A(timelines, iiii));
+					int i;
+					for (i = 0; i < kv_size(timelines); ++i)
+						spTimeline_dispose(kv_A(timelines, i));
 					kv_destroy(timelines);
 					_spSkeletonBinary_setError(self, "Attachment not found: ", attachmentName);
 					FREE(attachmentName);

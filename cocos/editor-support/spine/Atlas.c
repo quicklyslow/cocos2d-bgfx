@@ -70,7 +70,7 @@ static void trim(Str* str) {
 		(str->begin)++;
 	if (str->begin == str->end) return;
 	str->end--;
-	while (isspace((unsigned char)*str->end) && str->end >= str->begin)
+	while (((unsigned char)*str->end == '\r') && str->end >= str->begin)
 		str->end--;
 	str->end++;
 }

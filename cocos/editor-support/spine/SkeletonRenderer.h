@@ -106,7 +106,9 @@ public:
 	/* Whether two color tinting is enabled */
 	bool isTwoColorTint();
 
-    void setHightLight(bool enabled);
+    void setHighLight(bool enabled);
+
+    void setGray(bool gray);
 	
 	/* Sets the vertex effect to be used, set to 0 to disable vertex effects */
 	void setVertexEffect(spVertexEffect* effect);
@@ -141,6 +143,7 @@ CC_CONSTRUCTOR_ACCESS:
 
 	virtual void initialize ();
 	
+	void replaceAttachmentImage(const char* slotName, const char* attachmentName, cocos2d::SpriteFrame* frame);
 protected:
 	void setSkeletonData (spSkeletonData* skeletonData, bool ownsSkeletonData);
 	virtual AttachmentVertices* getAttachmentVertices (spRegionAttachment* attachment) const;
@@ -162,6 +165,7 @@ protected:
 	bool _debugMeshes;
 	spSkeletonClipping* _clipper;
 	spVertexEffect* _effect;
+	
 	int _startSlotIndex;
 	int _endSlotIndex;
     COCOS_TYPE_OVERRIDE(SkeletonRenderer);
