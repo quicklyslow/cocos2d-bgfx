@@ -65,7 +65,7 @@
 #endif
 
 #if USE_AUDIO
-#include "cocos/scripting/js-bindings/auto/jsb_cocos2dx_audioengine_auto.hpp"
+#include "cocos/scripting/js-bindings/manual/jsb_cocos2dx_audioengine_manual.hpp"
 #endif
 
 #if USE_DRAGON_BONES

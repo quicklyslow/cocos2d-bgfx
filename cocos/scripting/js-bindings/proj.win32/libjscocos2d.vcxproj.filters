@@ -47,9 +47,6 @@
     <ClCompile Include="..\auto\jsb_box2d_auto.cpp">
       <Filter>auto</Filter>
     </ClCompile>
-    <ClCompile Include="..\auto\jsb_cocos2dx_audioengine_auto.cpp">
-      <Filter>auto</Filter>
-    </ClCompile>
     <ClCompile Include="..\manual\jsb_box2d_manual.cpp">
       <Filter>manual</Filter>
     </ClCompile>
@@ -188,6 +185,9 @@
     <ClCompile Include="..\manual\jsb_opengl_registration.cpp">
       <Filter>manual</Filter>
     </ClCompile>
+    <ClCompile Include="..\manual\jsb_cocos2dx_audioengine_manual.cpp">
+      <Filter>manual</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\auto\jsb_cocos2dx_auto.hpp">
@@ -218,9 +218,6 @@
       <Filter>auto</Filter>
     </ClInclude>
     <ClInclude Include="..\auto\jsb_box2d_auto.hpp">
-      <Filter>auto</Filter>
-    </ClInclude>
-    <ClInclude Include="..\auto\jsb_cocos2dx_audioengine_auto.hpp">
       <Filter>auto</Filter>
     </ClInclude>
     <ClInclude Include="..\manual\jsb_box2d_manual.hpp">
@@ -386,6 +383,9 @@
       <Filter>manual</Filter>
     </ClInclude>
     <ClInclude Include="..\manual\jsb_opengl_registration.hpp">
+      <Filter>manual</Filter>
+    </ClInclude>
+    <ClInclude Include="..\manual\jsb_cocos2dx_audioengine_manual.hpp">
       <Filter>manual</Filter>
     </ClInclude>
   </ItemGroup>

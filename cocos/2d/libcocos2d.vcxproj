@@ -226,6 +226,8 @@ xcopy /Y /Q "$(ProjectDir)..\..\external\win32\libs\*.*" "$(OutDir)"
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\audio\AudioEngine.cpp" />
+    <ClCompile Include="..\audio\Sound.cpp" />
+    <ClCompile Include="..\audio\SoundCache.cpp" />
     <ClCompile Include="..\audio\win32\AudioCache.cpp" />
     <ClCompile Include="..\audio\win32\AudioDecoder.cpp" />
     <ClCompile Include="..\audio\win32\AudioDecoderManager.cpp" />
@@ -475,6 +477,8 @@ xcopy /Y /Q "$(ProjectDir)..\..\external\win32\libs\*.*" "$(OutDir)"
     <ClInclude Include="..\..\external\sources\xxhash\xxhash.h" />
     <ClInclude Include="..\..\external\sources\xxtea\xxtea.h" />
     <ClInclude Include="..\audio\include\AudioEngine.h" />
+    <ClInclude Include="..\audio\Sound.h" />
+    <ClInclude Include="..\audio\SoundCache.h" />
     <ClInclude Include="..\audio\win32\AudioCache.h" />
     <ClInclude Include="..\audio\win32\AudioDecoder.h" />
     <ClInclude Include="..\audio\win32\AudioDecoderManager.h" />

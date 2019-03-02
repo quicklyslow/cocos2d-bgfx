@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include=".\soloud\ext\libmodplug\src\fastmix.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_669.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_abc.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_amf.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_ams.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_dbm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_dmf.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_dsm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_far.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_it.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_j2b.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mdl.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_med.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mid.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mod.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mt2.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mtm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_okt.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_pat.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_psm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_ptm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_s3m.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_stm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_ult.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_umx.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_wav.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_xm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\mmcmp.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\modplug.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\snd_dsp.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\snd_flt.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\snd_fx.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\sndfile.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\sndmix.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\soloud\ext\libmodplug\src\libmodplug\it_defs.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\libmodplug\sndfile.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\libmodplug\stdafx.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\load_pat.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\modplug.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\tables.h" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

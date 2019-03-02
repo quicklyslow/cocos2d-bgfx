@@ -41,6 +41,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bx", "..\..\..\..\..\BGFX\b
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bimg_decode", "..\..\..\..\..\BGFX\bgfx\.build\projects\vs2017\bimg_decode.vcxproj", "{A7B931CA-136F-AABF-9C63-A4960818A1C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "soloud", "soloud", "{AE77B2F5-7939-471C-B17A-9AEB474F39D7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmodplug", "..\..\..\..\..\cocos\audio\libmodplug.vcxproj", "{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "soloud", "..\..\..\..\..\cocos\audio\soloud.vcxproj", "{A7692275-2F80-36F2-AA9A-21E92EE913FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -279,9 +285,49 @@ Global
 		{A7B931CA-136F-AABF-9C63-A4960818A1C3}.RelWithDebInfo|Win32.Build.0 = Release|Win32
 		{A7B931CA-136F-AABF-9C63-A4960818A1C3}.RelWithDebInfo|x64.ActiveCfg = Release|x64
 		{A7B931CA-136F-AABF-9C63-A4960818A1C3}.RelWithDebInfo|x64.Build.0 = Release|x64
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.Debug|Win32.Build.0 = Debug|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.Debug|x64.ActiveCfg = Debug|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.EditorRelease|Win32.ActiveCfg = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.EditorRelease|Win32.Build.0 = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.EditorRelease|x64.ActiveCfg = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.EditorRelease|x64.Build.0 = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.MinSizeRel|Win32.ActiveCfg = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.MinSizeRel|Win32.Build.0 = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.MinSizeRel|x64.ActiveCfg = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.MinSizeRel|x64.Build.0 = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.Release|Win32.ActiveCfg = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.Release|Win32.Build.0 = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.Release|x64.ActiveCfg = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.RelWithDebInfo|Win32.Build.0 = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.RelWithDebInfo|x64.ActiveCfg = Release|Win32
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}.RelWithDebInfo|x64.Build.0 = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.Debug|Win32.Build.0 = Debug|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.Debug|x64.ActiveCfg = Debug|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.EditorRelease|Win32.ActiveCfg = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.EditorRelease|Win32.Build.0 = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.EditorRelease|x64.ActiveCfg = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.EditorRelease|x64.Build.0 = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.MinSizeRel|Win32.ActiveCfg = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.MinSizeRel|Win32.Build.0 = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.MinSizeRel|x64.ActiveCfg = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.MinSizeRel|x64.Build.0 = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.Release|Win32.ActiveCfg = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.Release|Win32.Build.0 = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.Release|x64.ActiveCfg = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.RelWithDebInfo|Win32.Build.0 = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.RelWithDebInfo|x64.ActiveCfg = Release|Win32
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE}.RelWithDebInfo|x64.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9} = {AE77B2F5-7939-471C-B17A-9AEB474F39D7}
+		{A7692275-2F80-36F2-AA9A-21E92EE913FE} = {AE77B2F5-7939-471C-B17A-9AEB474F39D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE6FC40E-4AA9-4FFB-9A9F-9A2B4E047D1D}

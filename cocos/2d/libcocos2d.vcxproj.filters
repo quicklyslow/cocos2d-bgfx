@@ -752,6 +752,12 @@
     <ClCompile Include="..\renderer\CCVertexIndexData.cpp">
       <Filter>renderer</Filter>
     </ClCompile>
+    <ClCompile Include="..\audio\Sound.cpp">
+      <Filter>audioengine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\audio\SoundCache.cpp">
+      <Filter>audioengine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\cocos2d.h" />
@@ -1486,6 +1492,12 @@
     </ClInclude>
     <ClInclude Include="..\renderer\CCVertexIndexData.h">
       <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\audio\Sound.h">
+      <Filter>audioengine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\audio\SoundCache.h">
+      <Filter>audioengine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

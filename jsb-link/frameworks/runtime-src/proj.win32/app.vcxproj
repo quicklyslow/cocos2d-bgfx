@@ -34,7 +34,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -109,7 +109,7 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>libcurl.lib;websockets.lib;v8.dll.lib;v8_libbase.dll.lib;v8_libplatform.dll.lib;libuv.lib;libssl.lib;sqlite3.lib;libcrypto.lib;OpenAL32.lib;libmpg123.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;version.lib;libBox2D.lib;libchipmunk.lib;libDragonBones.lib;libSpine.lib;legacy_stdio_definitions.lib;libjscocos2d.lib;libcocos2d.lib;bgfxDebug.lib;bimgDebug.lib;bxDebug.lib;bimg_decodeDebug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libcurl.lib;websockets.lib;v8.dll.lib;v8_libbase.dll.lib;v8_libplatform.dll.lib;libuv.lib;libssl.lib;sqlite3.lib;libcrypto.lib;OpenAL32.lib;libmpg123.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;version.lib;libBox2D.lib;libchipmunk.lib;libDragonBones.lib;libSpine.lib;legacy_stdio_definitions.lib;libjscocos2d.lib;libcocos2d.lib;bgfxDebug.lib;bimgDebug.lib;bxDebug.lib;bimg_decodeDebug.lib;soloud.lib;libmodplug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);$(EngineRoot)BGFX\bgfx\.build\win32_vs2017\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>

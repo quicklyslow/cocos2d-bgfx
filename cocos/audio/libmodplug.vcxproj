@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{88BFCA6C-0A5F-351F-A1EB-21D130EAF3C9}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>libmodplug</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\simulator\win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\$(ProjectName)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\$(ProjectName)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\soloud\ext\libmodplug\src\libmodplug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>WIN32;_DEBUG;FIPS_DEBUG=1;HAVE_SINF=1;HAVE_STDINT_H=1;MODPLUG_STATIC=1;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;FIPS_DEBUG=1;HAVE_SINF=1;HAVE_STDINT_H=1;MODPLUG_STATIC=1;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\soloud\ext\libmodplug\src\libmodplug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.\soloud\ext\libmodplug\src\libmodplug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\soloud\ext\libmodplug\src\libmodplug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>WIN32;NDEBUG;HAVE_SINF=1;HAVE_STDINT_H=1;MODPLUG_STATIC=1;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;HAVE_SINF=1;HAVE_STDINT_H=1;MODPLUG_STATIC=1;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\soloud\ext\libmodplug\src\libmodplug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.\soloud\ext\libmodplug\src\libmodplug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include=".\soloud\ext\libmodplug\src\fastmix.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_669.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_abc.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_amf.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_ams.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_dbm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_dmf.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_dsm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_far.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_it.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_j2b.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mdl.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_med.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mid.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mod.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mt2.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_mtm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_okt.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_pat.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_psm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_ptm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_s3m.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_stm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_ult.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_umx.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_wav.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\load_xm.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\mmcmp.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\modplug.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\snd_dsp.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\snd_flt.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\snd_fx.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\sndfile.cpp" />
+    <ClCompile Include=".\soloud\ext\libmodplug\src\sndmix.cpp" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\libmodplug\it_defs.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\libmodplug\sndfile.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\libmodplug\stdafx.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\load_pat.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\modplug.h" />
+    <ClInclude Include=".\soloud\ext\libmodplug\src\tables.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\op\fips-build\fips-soloud-master\win32-vs2017-debug\ZERO_CHECK.vcxproj">
+      <Project>{F32CCFF0-37D7-34AC-A246-17D1BC68DE57}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
