@@ -45,20 +45,39 @@ static bool js_creator_sp_initSkeletonRenderer(se::State& s)
     // renderer, jsonPath, atlasText, textures, scale
     const auto& args = s.args();
     int argc = (int)args.size();
-    if (argc == 2) {
+    if (argc == 4) {
 		bool ok = false;
 
 		spine::SkeletonRenderer* node = nullptr;
 		ok = seval_to_native_ptr(args[0], &node);
 		SE_PRECONDITION2(ok, false, "js_creator_sp_initSkeletonRenderer: Converting 'sgNode' failed!");
 
-		spSkeletonData* data = nullptr;
-		ok = seval_to_native_ptr(args[1], &data);
-		SE_PRECONDITION2(ok, false, "js_creator_sp_initSkeletonRenderer: Converting 'spSkeletonData' failed!");
+		std::string filePath;
+		ok = seval_to_std_string(args[1], &filePath);
+		SE_PRECONDITION2(ok, false, "js_creator_sp_initSkeletonRenderer: Invalid json path!");
 
-		node->initWithData(data);
+		std::string atlasUrl;
+		ok = seval_to_std_string(args[2], &atlasUrl);
+		SE_PRECONDITION2(ok, false, "js_creator_sp_initSkeletonRenderer: Invalid atlas url!");
 
-        return true;
+		float scale = 1.0f;
+		ok = seval_to_float(args[3], &scale);
+		SE_PRECONDITION2(ok, false, "js_creator_sp_initSkeletonRenderer: Invalid scale!");
+
+		spAtlas* atlas = spAtlas_createFromFile(atlasUrl.c_str(), 0);//spAtlas_create(atlasText.c_str(), (int)atlasText.size(), "", nullptr);
+		CCASSERT(atlas, "Error creating atlas.");
+
+		auto ext = filePath.substr(filePath.length() - 4);
+		if (ext == "json")
+		{
+			node->initWithJsonFile(filePath, atlas, scale);
+		}
+		else
+		{
+			node->initWithBinaryFile(filePath, atlas, scale);
+		}
+
+		return true;
 	}
 	if (argc == 5) {
 		bool ok = false;

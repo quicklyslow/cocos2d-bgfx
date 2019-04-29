@@ -239,7 +239,8 @@ Label* Label::createWithBMFont(const std::string& fntDataString,
                                int maxLineWidth /* = 0 */,
                                const Vec2& imageOffset /* = Vec2::ZERO */)
 {
-    spriteFrame->autorelease(); //FIXME: Why to autorelease sprite frame here?
+    //no need this, because _fntSpriteFrame is smartPtr, if autorelease here, when _fntSpriteFrame == spriteFrame, _fntSpriteFrame will be over release
+    //spriteFrame->autorelease(); //FIXME: Why to autorelease sprite frame here?
 
     auto ret = new (std::nothrow) Label();
     if (ret != nullptr)
