@@ -1,0 +1,23 @@
+set(COCOS_RENDERER_HEADER
+    renderer/CCTextureCache.h
+    renderer/Renderer.h
+    renderer/Program.h
+    renderer/CCShaderCache.h
+    renderer/CCTextureAtlas.h
+    renderer/CCVertexIndexBuffer.h
+    renderer/CCVertexIndexData.h
+    renderer/CCPrimitive.h
+    renderer/CCTexture2D.h
+    )
+
+set(COCOS_RENDERER_SRC
+    renderer/CCTextureCache.cpp
+    renderer/Renderer.cpp
+    renderer/Program.cpp
+    renderer/CCShaderCache.cpp
+    renderer/CCTextureAtlas.cpp
+    renderer/CCVertexIndexBuffer.cpp
+    renderer/CCVertexIndexData.cpp
+    renderer/CCPrimitive.cpp
+    renderer/CCTexture2D.cpp
+    )

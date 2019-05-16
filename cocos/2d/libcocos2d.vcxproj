@@ -145,7 +145,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\external\win32\libs\*.*" "$(OutDir)"
     <Link>
       <AdditionalDependencies>sqlite3.lib;libcrypto.lib;libssl.lib;libcurl.lib;websockets.lib;libmpg123.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;OpenAL32.lib;version.lib;libwebp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);$(EngineRoot)external\libs\curl\prebuilt\win32;$(EngineRoot)external\libs\freetype\prebuilt\win32;$(EngineRoot)external\libs\jpeg\prebuilt\win32;$(EngineRoot)external\libs\openssl\prebuilt\win32;$(EngineRoot)external\libs\png\prebuilt\win32;$(EngineRoot)external\libs\tiff\prebuilt\win32;$(EngineRoot)external\libs\uv\prebuilt\win32;$(EngineRoot)external\libs\v8\prebuilt\win32;$(EngineRoot)external\libs\webp\prebuilt\win32;$(EngineRoot)external\libs\websockets\prebuilt\win32;$(EngineRoot)external\libs\zlib\prebuilt\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>LIBCMTD.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>

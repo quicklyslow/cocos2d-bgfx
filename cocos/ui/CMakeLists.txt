@@ -1,0 +1,94 @@
+if(WINDOWS)
+    set(COCOS_UI_SPECIFIC_HEADER
+        ui/UIEditBox/UIEditBoxImpl-win32.h
+        )
+    set(COCOS_UI_SPECIFIC_SRC
+        ui/UIEditBox/UIEditBoxImpl-win32.cpp
+        )
+elseif(APPLE)
+    if(MACOSX)
+        set(COCOS_UI_SPECIFIC_HEADER
+            ui/UIEditBox/UIEditBoxImpl-mac.h
+            ui/UIEditBox/Mac/CCUIPasswordTextField.h
+            ui/UIEditBox/Mac/CCUIMultilineTextField.h
+            ui/UIEditBox/Mac/CCUITextInput.h
+            ui/UIEditBox/Mac/CCUIEditBoxMac.h
+            ui/UIEditBox/Mac/CCUISingleLineTextField.h
+            ui/UIEditBox/Mac/CCUITextFieldFormatter.h
+            )
+        set(COCOS_UI_SPECIFIC_SRC
+            ui/UIEditBox/UIEditBoxImpl-mac.mm
+            ui/UIEditBox/Mac/CCUIEditBoxMac.mm
+            ui/UIEditBox/Mac/CCUIMultilineTextField.m
+            ui/UIEditBox/Mac/CCUIPasswordTextField.m
+            ui/UIEditBox/Mac/CCUISingleLineTextField.m
+            ui/UIEditBox/Mac/CCUITextFieldFormatter.m
+            )
+    elseif(IOS)
+        set(COCOS_UI_SPECIFIC_HEADER
+            ui/UIWebView.h
+            ui/UIVideoPlayer.h
+            ui/UIWebViewImpl-ios.h
+            ui/UIEditBox/UIEditBoxImpl-ios.h
+            ui/UIEditBox/iOS/CCUIEditBoxIOS.h
+            ui/UIEditBox/iOS/CCUIMultilineTextField.h
+            ui/UIEditBox/iOS/CCUITextInput.h
+            ui/UIEditBox/iOS/UITextView+CCUITextInput.h
+            ui/UIEditBox/iOS/UITextField+CCUITextInput.h
+            ui/UIEditBox/iOS/CCUISingleLineTextField.h
+            )
+        set(COCOS_UI_SPECIFIC_SRC
+            ui/UIWebView.mm
+            ui/UIVideoPlayer-ios.mm
+            ui/UIWebViewImpl-ios.mm
+            ui/UIEditBox/UIEditBoxImpl-ios.mm
+            ui/UIEditBox/iOS/CCUIEditBoxIOS.mm
+            ui/UIEditBox/iOS/CCUIMultilineTextField.mm
+            ui/UIEditBox/iOS/CCUISingleLineTextField.mm
+            ui/UIEditBox/iOS/UITextField+CCUITextInput.mm
+            ui/UIEditBox/iOS/UITextView+CCUITextInput.mm
+            )
+    endif()
+elseif(ANDROID)
+    set(COCOS_UI_SPECIFIC_HEADER
+        ui/UIWebView.h
+        ui/UIVideoPlayer.h
+        ui/UIWebViewImpl-android.h
+        ui/UIEditBox/UIEditBoxImpl-android.h
+        )
+    set(COCOS_UI_SPECIFIC_SRC
+        ui/UIEditBox/UIEditBoxImpl-android.cpp
+        ui/UIVideoPlayer-android.cpp
+        ui/UIWebViewImpl-android.cpp
+        # it's special for android, not a common file
+        ui/UIWebView.cpp
+        )
+endif()
+
+set(COCOS_UI_HEADER
+    ${COCOS_UI_SPECIFIC_HEADER}
+    ui/CocosGUI.h
+    ui/GUIDefine.h
+    ui/GUIExport.h
+    ui/UIHelper.h
+    ui/UIScale9Sprite.h
+    ui/UIWidget.h
+    ui/CCScrollView/CCTableViewCell.h
+    ui/CCScrollView/CCScrollView.h
+    ui/CCScrollView/CCTableView.h
+    ui/CCScrollView/CCMultiColumnTableView.h
+    )
+
+set(COCOS_UI_SRC
+    ${COCOS_UI_SPECIFIC_SRC}
+    ui/CocosGUI.cpp
+    ui/UIHelper.cpp
+    ui/UIScale9Sprite.cpp
+    ui/UIWidget.cpp
+    ui/UIEditBox/UIEditBox.cpp
+    ui/UIEditBox/UIEditBoxImpl-common.cpp
+    ui/CCScrollView/CCTableViewCell.cpp
+    ui/CCScrollView/CCScrollView.cpp
+    ui/CCScrollView/CCTableView.cpp
+    ui/CCScrollView/CCMultiColumnTableView.cpp
+    )

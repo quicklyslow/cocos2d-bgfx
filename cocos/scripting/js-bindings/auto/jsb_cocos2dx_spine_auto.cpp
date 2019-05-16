@@ -471,7 +471,7 @@ static bool js_cocos2dx_spine_SkeletonRenderer_setHighLight(se::State& s)
         bool arg0;
         ok &= seval_to_boolean(args[0], &arg0);
         SE_PRECONDITION2(ok, false, "js_cocos2dx_spine_SkeletonRenderer_setTwoColorTint : Error processing arguments");
-        cobj->setHightLight(arg0);
+        cobj->setHighLight(arg0);
         return true;
     }
     SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);

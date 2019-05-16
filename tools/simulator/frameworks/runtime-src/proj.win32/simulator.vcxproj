@@ -92,7 +92,7 @@
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);$(EngineRoot)external\win32\libs;$(EngineRoot)BGFX\bgfx\.build\win32_vs2017\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);$(EngineRoot)external\libs\curl\prebuilt\win32;$(EngineRoot)external\libs\freetype\prebuilt\win32;$(EngineRoot)external\libs\jpeg\prebuilt\win32;$(EngineRoot)external\libs\openssl\prebuilt\win32;$(EngineRoot)external\libs\png\prebuilt\win32;$(EngineRoot)external\libs\tiff\prebuilt\win32;$(EngineRoot)external\libs\uv\prebuilt\win32;$(EngineRoot)external\libs\v8\prebuilt\win32;$(EngineRoot)external\libs\webp\prebuilt\win32;$(EngineRoot)external\libs\websockets\prebuilt\win32;$(EngineRoot)external\libs\zlib\prebuilt\win32;$(EngineRoot)BGFX\bgfx\.build\win32_vs2017\bin;$(EngineRoot)external\win32\libs;$(EngineRoot)external\win32\libs;$(EngineRoot)BGFX\bgfx\.build\win32_vs2017\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libcurl.lib;websockets.lib;libSpine.lib;libDragonBones.lib;v8.dll.lib;v8_libbase.dll.lib;v8_libplatform.dll.lib;libuv.lib;libssl.lib;sqlite3.lib;libcrypto.lib;OpenAL32.lib;libmpg123.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;version.lib;legacy_stdio_definitions.lib;bxDebug.lib;bimgDebug.lib;bimg_decodeDebug.lib;bgfxDebug.lib;soloud.lib;libmodplug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
